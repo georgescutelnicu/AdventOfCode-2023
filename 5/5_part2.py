@@ -1,10 +1,11 @@
+
 with open('5.txt', 'r') as f:
   almanac = f.read().split('\n\n')
-  
+
 
   seeds = [int(seed) for seed in almanac[0].split()[1:]]
   parts = [[list(map(int, line.split())) for line in part.splitlines()[1:]] for part in almanac[1:]]
- 
+
   locations = []
 
   for i in range(0, len(seeds), 2):
@@ -38,3 +39,6 @@ with open('5.txt', 'r') as f:
     locations += seed_pairs
 
   print(min(locations)[0])
+
+  # Synedh's solution from the "r/adventofcode"-"2023 Day 5 Solutions" subreddit
+  # helped me a lot!
