@@ -21,7 +21,7 @@ def visualise_grid_and_get_coords(directions, steps):
     max_height = max(max_height, height)
     min_width = min(min_width, width)
     max_width = max(max_width, width)
-    
+
 
   total_height = abs(min_height) + max_height
   total_width = abs(min_width) + max_width
@@ -34,19 +34,19 @@ def visualise_grid_and_get_coords(directions, steps):
 
   for d, s in zip(directions, steps):
     for i in range(1, int(s)+1):
-      
+
       if d == 'L':
         current_col -= 1
 
       elif d == 'R':
         current_col += 1
-  
+
       elif d == 'U':
         current_row -= 1
-    
+
       elif d == 'D':
         current_row += 1
-    
+
       grid[current_row][current_col]= '#'
 
     coords.append((current_row, current_col))
@@ -59,7 +59,7 @@ def visualise_grid_and_get_coords(directions, steps):
 
 def shoelace_formula(coords):
   l = len(coords)
-  area_sum = sum(points[i][0] * (points[i - 1][1] - points[i + 1][1] if i + 1 < l else points[0][1]) for i in range(l))
+  area_sum = sum(coords[i][0] * (coords[i - 1][1] - coords[i + 1][1] if i + 1 < l else coords[0][1]) for i in range(l))
   A = abs(area_sum) // 2
 
   return A

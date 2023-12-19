@@ -24,7 +24,7 @@ def get_coords(directions, steps):
 
 def shoelace_formula(coords):
   l = len(coords)
-  area_sum = sum(points[i][0] * (points[i - 1][1] - points[i + 1][1] if i + 1 < l else points[0][1]) for i in range(l))
+  area_sum = sum(coords[i][0] * (coords[i - 1][1] - coords[i + 1][1] if i + 1 < l else coords[0][1]) for i in range(l))
   A = abs(area_sum) // 2
 
   return A
